@@ -16,6 +16,21 @@ TICKER = "^GSPC"
 START_DATE = "1950-01-01"
 MIN_DRAWDOWN_PCT = 5.0  # correction threshold
 
+# Homework-provided reference list: top 10 largest corrections by drawdown,
+# used below as a sanity check on the peak/trough detection logic.
+REFERENCE_TOP_10 = [
+    ("2007-10-09", "2009-03-09", 56.8, 517),
+    ("2000-03-24", "2002-10-09", 49.1, 929),
+    ("1973-01-11", "1974-10-03", 48.2, 630),
+    ("1968-11-29", "1970-05-26", 36.1, 543),
+    ("2020-02-19", "2020-03-23", 33.9, 33),
+    ("1987-08-25", "1987-12-04", 33.5, 101),
+    ("1961-12-12", "1962-06-26", 28.0, 196),
+    ("1980-11-28", "1982-08-12", 27.1, 622),
+    ("2022-01-03", "2022-10-12", 25.4, 282),
+    ("1966-02-09", "1966-10-07", 22.2, 240),
+]
+
 
 def get_sp500_history(start=START_DATE):
     df = yf.download(TICKER, start=start, progress=False, auto_adjust=False)
@@ -116,6 +131,16 @@ def main():
     print(f"75th percentile duration: {dur75:.1f} days")
 
     print(f"\nANSWER Q3: Median drawdown of significant corrections = {p50:.2f}%")
+
+    # --- Sanity check against the homework's reference top-10 list ---
+    top10 = corrections.sort_values("abs_drawdown_pct", ascending=False).head(10)
+    print("\nComputed top 10 corrections vs. homework reference list:")
+    for (peak, trough, ref_dd, ref_dur), (_, row) in zip(REFERENCE_TOP_10, top10.iterrows()):
+        print(
+            f"  ref: {peak} -> {trough}  {ref_dd:5.1f}% / {ref_dur:4d}d   |   "
+            f"got: {row['peak_date'].date()} -> {row['trough_date'].date()}  "
+            f"{row['abs_drawdown_pct']:5.1f}% / {row['duration_days']:4.0f}d"
+        )
 
 
 if __name__ == "__main__":

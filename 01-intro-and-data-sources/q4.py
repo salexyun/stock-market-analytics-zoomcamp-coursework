@@ -6,26 +6,24 @@ following positive earnings surprise days.
 Additional Task: Examine correlation between surprise magnitude and price
 reaction; assess bull vs bear market differences.
 
-Methodology: for each earnings date, take the 3-day trading-day sequence
-[day before the announcement, the announcement day, the day after] and
-define the "2-day return" as the % change from the close the day before
-the announcement to the close the day after (a 2-trading-day span that
-straddles the earnings event).
+Methodology (per the homework spec): for each sequence of 3 consecutive
+trading days (Day 1, Day 2, Day 3) where Day 2 is the earnings-announcement
+day, the "2-day return" is Close_Day3 / Close_Day1 - 1.
+
+`ticker_obj.get_earnings_dates()` (no `limit`) returns 25 entries starting
+from 2020-10-29; the most recent one is a future date with no Reported EPS /
+Surprise(%) yet, so it drops out once we filter to rows with surprise data.
 """
-import numpy as np
 import pandas as pd
 import yfinance as yf
 
 TICKER = "AMZN"
-SINCE = "2020-10-29"  # homework spec: "25 entries from 2020-10-29"
 
 
-def get_earnings_surprises(ticker=TICKER, limit=30, since=SINCE):
+def get_earnings_surprises(ticker=TICKER):
     tk = yf.Ticker(ticker)
-    df = tk.get_earnings_dates(limit=limit)
+    df = tk.get_earnings_dates()
     df = df.dropna(subset=["Surprise(%)"]).sort_index()
-    if since is not None:
-        df = df[df.index >= pd.Timestamp(since, tz=df.index.tz)]
     return df
 
 
@@ -38,22 +36,22 @@ def get_price_history(ticker=TICKER, start="2020-01-01"):
 
 
 def two_day_return_around(close: pd.Series, earnings_ts: pd.Timestamp):
-    """3-day sequence: [day-before, announcement day, day-after].
-    2-day return = close(day-after) / close(day-before) - 1.
+    """Day 1 / Day 2 / Day 3 sequence, Day 2 = the earnings announcement.
+    2-day return = Close_Day3 / Close_Day1 - 1.
     """
     earnings_date = pd.Timestamp(earnings_ts).tz_localize(None).normalize()
     idx = close.index
-    pos = idx.searchsorted(earnings_date)  # index of the announcement day (or next trading day)
-    if pos - 1 < 0 or pos + 1 >= len(idx):
+    day2_pos = idx.searchsorted(earnings_date)  # Day 2 (or next trading day)
+    if day2_pos - 1 < 0 or day2_pos + 1 >= len(idx):
         return None
-    day_before, announce_day, day_after = idx[pos - 1], idx[pos], idx[pos + 1]
-    ret_pct = (close.iloc[pos + 1] / close.iloc[pos - 1] - 1) * 100
-    return ret_pct, day_before, announce_day, day_after
+    day1, day2, day3 = idx[day2_pos - 1], idx[day2_pos], idx[day2_pos + 1]
+    ret_pct = (close.iloc[day2_pos + 1] / close.iloc[day2_pos - 1] - 1) * 100
+    return ret_pct, day1, day2, day3
 
 
 def main():
     earnings = get_earnings_surprises()
-    print(f"Earnings entries with surprise data (since {SINCE}): {len(earnings)}")
+    print(f"Earnings entries with surprise data: {len(earnings)}")
     print(earnings[["Reported EPS", "EPS Estimate", "Surprise(%)"]].to_string())
 
     close = get_price_history(start="2020-01-01")

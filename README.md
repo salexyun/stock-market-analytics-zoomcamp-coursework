@@ -46,16 +46,20 @@ uv run python 01-intro-and-data-sources/q6.py
 | 5 | Capstone project brainstorm (optional, free text) | see `q5.py` |
 | 6 | New metrics investigation (optional, free text) | see `q6.py` |
 
-Notes on methodology:
+Verified against the [homework spec](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/cohorts/2026/homework1.md):
 - **Q1**: Wikipedia's "List of S&P 500 companies" page currently only exposes the
   live constituents table (with a `Date added` column) via `pandas.read_html()` —
   the separate historical "changes" table that used to sit below it is no longer
   present, so additions/removals before a stock's *current* stay in the index
   aren't captured. Direct requests get a 403, so the page is fetched with a
-  browser `User-Agent` first (same trick the lesson notebook uses for
-  tradingeconomics.com) and the HTML is handed to `pandas.read_html()`.
+  browser `User-Agent` first (as the spec's hint suggests) and the HTML is
+  handed to `pandas.read_html()`.
 - **Q3**: a "correction" = a decline of ≥5% from a running all-time high to the
-  subsequent trough, before a new all-time high is made.
-- **Q4**: for each of AMZN's last 24 earnings reports (since 2020-10-29) with
-  surprise data, the "2-day return" is the % change from the close the trading
-  day *before* the announcement to the close the trading day *after* it.
+  subsequent trough, before a new all-time high is made. The spec ships a
+  reference list of the 10 largest S&P 500 corrections by drawdown — `q3.py`
+  cross-checks against it, and all 10 match exactly (dates, drawdown %, and
+  duration in days).
+- **Q4**: `get_earnings_dates()` with no `limit` returns exactly the 25 AMZN
+  entries from 2020-10-29 the spec describes (1 future one has no surprise
+  data yet, leaving 24). For each 3-day (Day1/Day2/Day3) window around each
+  announcement, the 2-day return is `Close_Day3 / Close_Day1 - 1`.
