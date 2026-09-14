@@ -19,7 +19,13 @@ WIKI_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
 
 
 def load_sp500_current():
-    headers = {"User-Agent": "Mozilla/5.0 (compatible; sma-zoomcamp-homework/1.0)"}
+    # can't call pd.read_html() directly on this URL (403) -- same trick as
+    # the course notebook's "Web Scraping for Macro" section: fetch with a
+    # browser-like User-Agent first, then hand the HTML to pandas.
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+    }
     resp = requests.get(WIKI_URL, headers=headers, timeout=30)
     resp.raise_for_status()
     tables = pd.read_html(io.StringIO(resp.text))
