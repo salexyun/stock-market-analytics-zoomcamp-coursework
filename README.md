@@ -19,10 +19,19 @@ See [`01-intro-and-data-sources/homework1.ipynb`](01-intro-and-data-sources/home
 analysis, or run the individual scripts:
 
 ```bash
-uv run python 01-intro-and-data-sources/q1_sp500_additions.py
-uv run python 01-intro-and-data-sources/q2_macro_indexes.py
-uv run python 01-intro-and-data-sources/q3_sp500_corrections.py
-uv run python 01-intro-and-data-sources/q4_amzn_earnings.py
+uv run python 01-intro-and-data-sources/q1.py
+uv run python 01-intro-and-data-sources/q2.py
+uv run python 01-intro-and-data-sources/q3.py
+uv run python 01-intro-and-data-sources/q4.py
+```
+
+`q5.py` and `q6.py` hold the two optional free-text questions (capstone
+project brainstorm, new metrics investigation) — fill in your own answer in
+each before submitting:
+
+```bash
+uv run python 01-intro-and-data-sources/q5.py
+uv run python 01-intro-and-data-sources/q6.py
 ```
 
 ### Answers
@@ -34,6 +43,8 @@ uv run python 01-intro-and-data-sources/q4_amzn_earnings.py
 | 2 | Indexes (of 10) beating the S&P 500 YTD as of 2026-08-21 | **2** (Nikkei 225, S&P/TSX Composite) |
 | 3 | Median drawdown (%) of significant S&P 500 corrections (1950–present) | **~8%** (7.99%) |
 | 4 | Median 2-day % change after positive AMZN earnings surprises | **0.35%** |
+| 5 | Capstone project brainstorm (optional, free text) | see `q5.py` |
+| 6 | New metrics investigation (optional, free text) | see `q6.py` |
 
 Notes on methodology:
 - **Q1**: Wikipedia's "List of S&P 500 companies" page currently only exposes the
