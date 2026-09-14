@@ -43,7 +43,7 @@ uv run python 01-intro-and-data-sources/q6.py
 | 2 | Indexes (of 10) beating the S&P 500 YTD as of 2026-08-21 | **2** (Nikkei 225, S&P/TSX Composite) |
 | 3 | Median drawdown (%) of significant S&P 500 corrections (1950–present) | **~8%** (7.99%) |
 | 4 | Median 2-day % change after positive AMZN earnings surprises | **0.35%** |
-| 5 | Capstone project brainstorm (optional, free text) | see `q5.py` |
+| 5 | Capstone project brainstorm (optional, free text) | Korean market (KOSPI/KOSDAQ) prediction model — see `q5.py` |
 | 6 | New metrics investigation (optional, free text) | see `q6.py` |
 
 Verified against the [homework spec](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/cohorts/2026/homework1.md):
