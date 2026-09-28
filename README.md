@@ -28,4 +28,4 @@ Scripts `q1.py`–`q6.py` in [`01-intro-and-data-sources/`](01-intro-and-data-so
 Lesson: [`[2026]_Module_02_Colab_Working_with_the_data.ipynb`](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/02-dataframe-analysis/%5B2026%5D_Module_02_Colab_Working_with_the_data.ipynb)
 Homework: [`cohorts/2026/homework2.md`](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/cohorts/2026/homework2.md)
 
-Scripts `q1.py`–`q5.py` in [`02-dataframe-analysis/`](02-dataframe-analysis/). Q3 reuses the stock data Q2 downloads and caches in `02-dataframe-analysis/data/`.
+Scripts `q1.py`–`q5.py` in [`02-dataframe-analysis/`](02-dataframe-analysis/), plus the full worked analysis in [`homework2.ipynb`](02-dataframe-analysis/homework2.ipynb). Q3 reuses the stock data Q2 downloads and caches in `02-dataframe-analysis/data/`.
