@@ -40,3 +40,5 @@ uv run python 02-dataframe-analysis/q3.py
 uv run python 02-dataframe-analysis/q4.py
 uv run python 02-dataframe-analysis/q5.py
 ```
+
+Q5 tl;dr: only buy the IPOs a model trained on past deals scores well (using what's known at IPO time), wait out the post-IPO drift before buying, and use stop-loss and take-profit exits instead of holding for a fixed period.
