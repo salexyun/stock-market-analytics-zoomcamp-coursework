@@ -26,3 +26,17 @@ uv run python 01-intro-and-data-sources/q4.py
 uv run python 01-intro-and-data-sources/q5.py
 uv run python 01-intro-and-data-sources/q6.py
 ```
+
+## Module 2 — DataFrame Analysis
+
+Homework: [`cohorts/2026/homework2.md`](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/cohorts/2026/homework2.md)
+
+Run the scripts (Q3 reuses the stock data Q2 downloads and caches in `02-dataframe-analysis/data/`):
+
+```bash
+uv run python 02-dataframe-analysis/q1.py
+uv run python 02-dataframe-analysis/q2.py
+uv run python 02-dataframe-analysis/q3.py
+uv run python 02-dataframe-analysis/q4.py
+uv run python 02-dataframe-analysis/q5.py
+```
