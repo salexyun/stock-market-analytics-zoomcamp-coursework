@@ -29,3 +29,10 @@ Lesson: [`[2026]_Module_02_Colab_Working_with_the_data.ipynb`](https://github.co
 Homework: [`cohorts/2026/homework2.md`](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/cohorts/2026/homework2.md)
 
 Scripts `q1.py`–`q5.py` in [`02-dataframe-analysis/`](02-dataframe-analysis/), plus the full worked analysis in [`homework2.ipynb`](02-dataframe-analysis/homework2.ipynb). Q3 reuses the stock data Q2 downloads and caches in `02-dataframe-analysis/data/`.
+
+## Module 3 — Modeling
+
+Lesson: [`[2026]_Module_03_Colab_Time_Series_Modeling.ipynb`](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/03-modeling/%5B2026%5D_Module_03_Colab_Time_Series_Modeling.ipynb)
+Homework: [`cohorts/2026/homework3.md`](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/cohorts/2026/homework3.md)
+
+Scripts `q1.py`–`q5.py` in [`03-modeling/`](03-modeling/), plus the full worked analysis in [`homework3.ipynb`](03-modeling/homework3.ipynb). Shared data prep lives in `prep.py`; the course parquet is cached in `03-modeling/data/`.
