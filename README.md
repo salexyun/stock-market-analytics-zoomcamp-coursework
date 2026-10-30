@@ -36,3 +36,10 @@ Lesson: [`[2026]_Module_03_Colab_Time_Series_Modeling.ipynb`](https://github.com
 Homework: [`cohorts/2026/homework3.md`](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/cohorts/2026/homework3.md)
 
 Scripts `q1.py`–`q5.py` in [`03-modeling/`](03-modeling/), plus the full worked analysis in [`homework3.ipynb`](03-modeling/homework3.ipynb). Shared data prep lives in `prep.py`; the course parquet is cached in `03-modeling/data/`.
+
+## Module 4 — Trading Strategy and Simulation
+
+Lesson: [`[2026]_Module_04_Colab_Trading_Simulations.ipynb`](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/04-trading-strategy-and-simulation/%5B2026%5D_Module_04_Colab_Trading_Simulations.ipynb)
+Homework: [`cohorts/2026/homework4.md`](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/cohorts/2026/homework4.md)
+
+Scripts `q1.py`–`q3.py` in [`04-trading-strategy-and-simulation/`](04-trading-strategy-and-simulation/). `prep.py` reproduces the lesson pipeline and simulation, reusing Module 3's cached data.
