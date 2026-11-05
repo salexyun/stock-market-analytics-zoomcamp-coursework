@@ -43,3 +43,9 @@ Lesson: [`[2026]_Module_04_Colab_Trading_Simulations.ipynb`](https://github.com/
 Homework: [`cohorts/2026/homework4.md`](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/cohorts/2026/homework4.md)
 
 Scripts `q1.py`–`q4.py` in [`04-trading-strategy-and-simulation/`](04-trading-strategy-and-simulation/), plus the full worked analysis in [`homework4.ipynb`](04-trading-strategy-and-simulation/homework4.ipynb). `prep.py` reproduces the lesson pipeline and simulation, reusing Module 3's cached data.
+
+## Module 5 — Deployment and Automation
+
+Homework: [`cohorts/2026/homework5.md`](https://github.com/DataTalksClub/stock-markets-analytics-zoomcamp/blob/main/cohorts/2026/homework5.md)
+
+Free-text research proposals in [`homework5.md`](05-deployment-and-automation/homework5.md).
